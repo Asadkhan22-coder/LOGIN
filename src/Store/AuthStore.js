@@ -1,8 +1,8 @@
 import { action, makeObservable, observable } from "mobx";
 
 class AuthStore {
-  Username = "";
-  Password = "";
+  Username = "johndoe";
+  Password = "mypassword";
   Mail = "";
   Repeat = "";
 

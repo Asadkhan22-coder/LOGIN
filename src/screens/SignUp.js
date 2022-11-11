@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "18%",
     backgroundColor: "white",
-    borderBottomLeftRadius: "250 ",
-    borderBottomRightRadius: "250 ",
+    borderBottomLeftRadius: 250,
+    borderBottomRightRadius: 250,
   },
 });

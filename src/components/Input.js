@@ -23,6 +23,7 @@ const Input = (props) => {
         style={[styles.input, props.style]}
         placeholder={props.placeholder}
         secureTextEntry={secure}
+        value={props.data}
         onChangeText={(data) => props.onChangeABC(data)}
       />
 
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 30,
     marginTop: 15,
-    height: "7%",
+    height: "8%",
   },
   input: {
     flex: 1,

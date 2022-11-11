@@ -6,21 +6,16 @@ import Button from "../Buttons/button";
 import Footer from "../components/footer";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { isSignIn } from "../utils/helper";
-import { storeData } from "../utils/service";
+import { signinAPI } from "../utils/service";
 import Store from "../Store/mobXstore";
 import AuthStore from "../Store/AuthStore";
 import { observer } from "mobx-react";
-import Toast from "react-native-root-toast";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-// import { storeData } from "../utils/service";
-// import * as LottiePlayer from "@lottiefiles/lottie-player";
 
 const Login = ({ navigation }) => {
   const [isChecked, setChecked] = useState(false);
   const [message, setMessage] = useState("");
 
-  // console.log("Login screen");
   const MoveTo = (page) => {
     navigation.navigate(page);
   };
@@ -28,9 +23,6 @@ const Login = ({ navigation }) => {
   // const remeberMe = (data) => {
   //   setChecked(data);
   //   Store.setCount(true);
-  // };
-  // const showToast = () => {
-  //   Toast.show("Wrong Credentials!", Toast.SHORT);
   // };
 
   const login = async () => {
@@ -40,54 +32,11 @@ const Login = ({ navigation }) => {
     });
     // console.log("first", Store.count);
     if (a === "Successfully login") {
-      let b = {};
-      await fetch("https://onlinetool.in/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          password: AuthStore.Password,
-          username: AuthStore.Username,
-        }),
-      })
-        .then((response) => response.json())
-        .then(async (response) => {
-          console.log("response", response);
-          b = response;
-          if (response.detail) {
-            Toast.show(response.detail, Toast.SHORT);
-          } else {
-            // await storeData("Token")
-            var abc = storeData(response.Token);
-            Store.setCount(true);
-            console.log("store data", abc);
-            // // console.log("store data", storeData("storage_Key", data));
-            // console.log("abc", abc);
-            // return JSON.parse(storeData("storage_Key"));
-          }
-          return response;
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
-
-      // b.then((resp) => console.log("resp", resp));
-
-      console.log("var b", b);
+      signinAPI();
     } else {
       Store.setCount(false);
     }
-
     setMessage(a);
-    // if (a === "Successfully login") {
-    //   console.log("Successfully login");
-    //   await storeData({
-    //     Username: AuthStore.Username,
-    //     Password: AuthStore.Password,
-    //   });
-    //   // navigation.navigate(page);
-    // }
   };
 
   return (
@@ -189,7 +138,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "18%",
     backgroundColor: "white",
-    borderBottomLeftRadius: "250 ",
-    borderBottomRightRadius: "250 ",
+    borderBottomLeftRadius: 250,
+    borderBottomRightRadius: 250,
   },
 });
