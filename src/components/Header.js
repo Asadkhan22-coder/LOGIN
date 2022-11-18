@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import * as SVG from "../assets/SVG";
@@ -11,7 +12,6 @@ const Header = () => {
     await clearStorage("storage_Key");
     Store.setCount(false);
   };
-  // const Path
 
   return (
     <>
@@ -72,7 +72,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default observer(Header);
 
 const styles = StyleSheet.create({
   heading: {

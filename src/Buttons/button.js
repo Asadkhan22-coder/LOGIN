@@ -1,8 +1,10 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import Color from "../assets/Color";
+import { Ionicons } from "@expo/vector-icons";
+import * as SVG from "../assets/SVG";
 
-const Button = ({ onClick, title, style, buttonStyle }) => {
+const Button = ({ onClick, title, style, buttonStyle, name, iconstyle }) => {
   return (
     <TouchableOpacity
       style={[styles.signUp, { backgroundColor: Color.WHITE }, style]}
@@ -24,9 +26,6 @@ const styles = StyleSheet.create({
     width: "80%",
     borderRadius: 29,
     alignItems: "center",
-    // position: "absolute",
-    // marginLeft: 64,
-    // marginTop: "95%",
   },
   title: {
     fontSize: 22,

@@ -16,13 +16,19 @@ const Home = () => {
   return (
     <>
       <View style={styles.main}>
-        <Header />
+        <Header title={"Alok Shriwastava"} number={"#123456789"} />
 
         <View style={styles.centerContainer}>
           <Text style={styles.trip}>Trip Listing</Text>
           <Text style={styles.view}>View All</Text>
         </View>
-        <DashboardContainer />
+        <DashboardContainer
+          maincontainerstyle={{
+            height: "70%",
+            paddingBottom: 150,
+            marginTop: 25,
+          }}
+        />
         <Ionicons size={30} color="black" />
       </View>
     </>

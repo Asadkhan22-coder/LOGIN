@@ -16,11 +16,16 @@ const Input = (props) => {
   // };
 
   return (
-    <View style={styles.container}>
-      <Ionicons size={30} color="black" style={styles.icon} name={props.name} />
+    <View style={[styles.container, props.oneStyle]}>
+      <Ionicons
+        size={30}
+        color="black"
+        style={[styles.icon, props.styleIcon]}
+        name={props.name}
+      />
 
       <TextInput
-        style={[styles.input, props.style]}
+        style={[styles.input, props.style, props.fieldStyle]}
         placeholder={props.placeholder}
         secureTextEntry={secure}
         value={props.data}
@@ -66,5 +71,9 @@ const styles = StyleSheet.create({
   icon: {
     width: "20%",
     padding: 10,
+  },
+  fieldStyle: {
+    borderWidth: 4,
+    backgroundColor: "red",
   },
 });

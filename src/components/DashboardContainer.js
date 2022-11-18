@@ -1,68 +1,178 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
-const DashboardContainer = () => {
+const DashboardContainer = ({ maincontainerstyle }) => {
+  var navigation = useNavigation();
+
+  // const fnc = (value) => {
+  //   return value;
+  // };
+  // var a = fnc();
+  // console.log("a", a);
+
   const Data = [
     {
-      id: "1",
-      Name: "Rahul Sharma",
-      trip: "Trip Start",
-      Date: "10-11-2022",
-      status: "Status",
-      notStart: "Not Started",
+      TripData: {
+        Tripname: "To mumbai(#95918-5ec3b69a)",
+        LicensePlateNumber: "MH-04-CS-2153",
+        VehicleInsuranceExpiry: "02-10-2023",
+        VehicleType: "Car(Swift)",
+        TripType: "Oneway",
+        TripStatus: "Not Started",
+        TripStart: "Trip Start",
+        status: "Status",
+      },
+      TripAmount: {
+        AdvanceAmount: "₹ 1500",
+        CustomerAmount: "₹ 1000",
+        BataAmount: "₹ 3000",
+      },
+      CustomerInformation: {
+        Name: "Test 1",
+        ContactNumber: "+91 1234567890",
+        Address: "63 Bhagwati Market Blank Street Pune",
+      },
+      PlannedDateAndTime: {
+        TripStartDateAndTime: "12-05-2022 02:40PM",
+        TripEndDateAndTime: "13-05-2022 01:00AM",
+        TripStartLocation: "Pune (Maharashtra)",
+        TripEndLocation: "Mumbai (Maharashtra)",
+        TripStartAddress: "Pune H.O, Pune",
+        TripEndAddress: "Andheri H.O",
+      },
     },
     {
-      id: "2",
-      Name: "Rahul Sharma",
-      trip: "Trip Start",
-      Date: "10-11-2022",
-      status: "Status",
-      notStart: "Not Started",
+      TripData: {
+        Tripname: "To Indore(#95918-5ec3b69a)",
+        LicensePlateNumber: "MH-04-CS-2153",
+        VehicleInsuranceExpiry: "02-10-2023",
+        VehicleType: "Car (Audi)",
+        TripType: "Oneway",
+        TripStatus: "Not Started",
+        TripStart: "Trip Start",
+        status: "Status",
+      },
+      TripAmount: {
+        AdvanceAmount: "₹ 1500",
+        CustomerAmount: "₹ 1000",
+        BataAmount: "₹ 3000",
+      },
+      CustomerInformation: {
+        Name: "Rahul Sharma",
+        ContactNumber: "91 1234567890",
+        Address: "63 Bhagwati Market Blank Street Pune",
+      },
+      PlannedDateAndTime: {
+        TripStartDateAndTime: "12-05-2022 02:40PM",
+        TripEndDateAndTime: "13-05-2022 01:00AM",
+        TripStartLocation: "Pune (Maharashtra)",
+        TripEndLocation: "Mumbai (Maharashtra)",
+        TripStartAddress: "Pune H.O, Pune",
+        TripEndAddress: "Andheri H.O",
+      },
     },
     {
-      id: "3",
-      Name: "Rahul Sharma",
-      trip: "Trip Start",
-      Date: "10-11-2022",
-      status: "Status",
-      notStart: "Not Started",
+      TripData: {
+        Tripname: "To Bhopal(#95918-5ec3b69a)",
+        LicensePlateNumber: "MH-04-CS-2153",
+        VehicleInsuranceExpiry: "02-10-2023",
+        VehicleType: "Car(Swift)",
+        TripType: "Oneway",
+        TripStatus: "Not Started",
+        TripStart: "Trip Start",
+        status: "Status",
+      },
+      TripAmount: {
+        AdvanceAmount: "₹ 1500",
+        CustomerAmount: "₹ 1000",
+        BataAmount: "₹ 3000",
+      },
+      CustomerInformation: {
+        Name: "testing",
+        ContactNumber: "91 1234567890",
+        Address: "63 Bhagwati Market Blank Street Pune",
+      },
+      PlannedDateAndTime: {
+        TripStartDateAndTime: "12-05-2022 02:40PM",
+        TripEndDateAndTime: "13-05-2022 01:00AM",
+        TripStartLocation: "Pune (Maharashtra)",
+        TripEndLocation: "Mumbai (Maharashtra)",
+        TripStartAddress: "Pune H.O, Pune",
+        TripEndAddress: "Andheri H.O",
+      },
     },
     {
-      id: "4",
-      Name: "Rahul Sharma",
-      trip: "Trip Start",
-      Date: "10-11-2022",
-      status: "Status",
-      notStart: "Not Started",
+      TripData: {
+        Tripname: "To Jaipur(#95918-5ec3b69a)",
+        LicensePlateNumber: "MH-04-CS-2153",
+        VehicleInsuranceExpiry: "02-10-2023",
+        VehicleType: "Car(Swift)",
+        TripType: "Oneway",
+        TripStatus: "Not Started",
+        TripStart: "Trip Start",
+        status: "Status",
+      },
+      TripAmount: {
+        AdvanceAmount: "₹ 1500",
+        CustomerAmount: "₹ 1000",
+        BataAmount: "₹ 3000",
+      },
+      CustomerInformation: {
+        Name: "Rahul Sharma",
+        ContactNumber: "91 1234567890",
+        Address: "63 Bhagwati Market Blank Street Pune",
+      },
+      PlannedDateAndTime: {
+        TripStartDateAndTime: "12-05-2022 02:40PM",
+        TripEndDateAndTime: "13-05-2022 01:00AM",
+        TripStartLocation: "Pune (Maharashtra)",
+        TripEndLocation: "Mumbai (Maharashtra)",
+        TripStartAddress: "Pune H.O, Pune",
+        TripEndAddress: "Andheri H.O",
+      },
     },
   ];
 
+  const moveTo = (item) => {
+    navigation.navigate("TripDetail", {
+      TripDetails: item,
+    });
+  };
+
   return (
-    <View style={styles.mainContainer}>
+    <View style={[styles.mainContainer, maincontainerstyle]}>
       <FlatList
         data={Data}
+        scrollEnabled={true}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <>
-            <View style={styles.main}>
-              <View style={styles.firstView}>
-                <Text style={styles.name}>{item.Name}</Text>
-                <Text style={styles.name}>{item.Name}</Text>
-              </View>
+            <TouchableOpacity onPress={() => moveTo(item)}>
+              <View style={styles.main}>
+                <View style={styles.firstView}>
+                  <Text style={styles.name}>{item.TripData.Tripname}</Text>
+                  <Text style={styles.name}>{item.TripData.TripType}</Text>
+                </View>
 
-              <View style={styles.firstView}>
-                <Text style={styles.status}>{item.trip}</Text>
-                <Text style={styles.status}>{item.status}</Text>
-              </View>
+                <View style={styles.firstView}>
+                  <Text style={styles.status}>Trip Start</Text>
+                  <Text style={styles.status}>{item.TripData.status}</Text>
+                </View>
 
-              <View style={styles.firstView}>
-                <Text style={styles.date}>{item.Date}</Text>
-                <View style={styles.start}>
-                  <Text style={styles.notStart}>{item.notStart}</Text>
+                <View style={styles.firstView}>
+                  <Text style={styles.date}>
+                    {item.PlannedDateAndTime.TripStartDateAndTime}
+                  </Text>
+                  <View style={styles.start}>
+                    <Text style={styles.notStart}>
+                      {item.TripData.TripStatus}
+                    </Text>
+                  </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           </>
         )}
       />
@@ -75,13 +185,14 @@ export default DashboardContainer;
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: 25,
-    width: "100%",
+    // height: "70%",
+    paddingBottom: 150,
   },
   main: {
     marginHorizontal: 20,
     backgroundColor: "white",
     height: 110,
-    marginTop: 1,
+    marginTop: 3,
     padding: 10,
     borderRadius: 8,
   },
