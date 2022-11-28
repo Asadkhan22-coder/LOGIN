@@ -2,14 +2,17 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import * as SVG from "../assets/SVG";
 
-const FAB = ({ modalState, visibleState }) => {
+const FAB = ({ modalState, visibleState, icon, style }) => {
   return (
-    <TouchableOpacity
-      onPress={() => modalState(!visibleState)}
-      style={styles.plusIcon}
-    >
-      <SVG.PlusIcon />
-    </TouchableOpacity>
+    <>
+      <TouchableOpacity
+        onPress={() => modalState(!visibleState)}
+        style={[styles.plusIcon, style]}
+      >
+        {/* <SVG.Plus /> */}
+        <View>{icon}</View>
+      </TouchableOpacity>
+    </>
   );
 };
 

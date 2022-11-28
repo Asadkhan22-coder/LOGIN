@@ -4,26 +4,62 @@ import * as SVG from "../assets/SVG";
 import Button from "../Buttons/button";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const ProfileHeader = ({ source, heading, Icon, number, button }) => {
+const ProfileHeader = ({
+  source,
+  heading,
+  Icon,
+  number,
+  button,
+  status,
+  BackIcon,
+  style,
+  iconStyle,
+  onclick,
+}) => {
+  // console.log("button", button);
   return (
     <>
       <View style={styles.header}>
-        <View>
-          <Image source={source} style={styles.image} />
-          <View style={styles.camera}>{Icon}</View>
+        <View
+          style={{
+            // width: "20%",
+            alignItems: "center",
+            // borderWidth: 1,
+            top: 40,
+            // left: 20,
+          }}
+        >
+          <TouchableOpacity style={styles.backicon} onPress={() => onclick()}>
+            {BackIcon}
+          </TouchableOpacity>
         </View>
-        <Text style={styles.heading}>{heading}</Text>
-        <Text style={[styles.heading, { fontSize: 14, color: "#B1B1B1" }]}>
-          {number}
-        </Text>
-        <View style={styles.btn}>
-          <View style={styles.status}>
-            <Text style={{ fontSize: 16, fontWeight: "500" }}>Status</Text>
-          </View>
-          <View style={styles.online}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
-              {button}
-            </Text>
+
+        <View
+          style={{
+            width: "80%",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image source={source} style={[styles.image, style]} />
+          {Icon && <View style={[styles.camera, iconStyle]}>{Icon}</View>}
+          <Text style={styles.heading}>{heading}</Text>
+          <Text style={[styles.heading, { fontSize: 14, color: "#B1B1B1" }]}>
+            {number}
+          </Text>
+          <View style={styles.btn}>
+            <View style={styles.status}>
+              <Text style={{ fontSize: 16, fontWeight: "500" }}>{status}</Text>
+            </View>
+            {button && (
+              <View style={styles.online}>
+                <Text
+                  style={{ color: "white", fontSize: 16, fontWeight: "bold" }}
+                >
+                  {button}
+                </Text>
+              </View>
+            )}
           </View>
         </View>
       </View>
@@ -39,7 +75,11 @@ const styles = StyleSheet.create({
     height: "35%",
     backgroundColor: "#ffffff",
     justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "row",
+    // alignItems: "center",
+  },
+  internal: {
+    width: "20%",
   },
   image: {
     height: 100,
@@ -60,9 +100,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 4,
     top: 5,
-    left: 38,
+    // left: 38,
     borderRadius: 6,
   },
+  // backicon: {
+  //   // position: "absolute",
+  //   right: "35%",
+  //   // top: 13,
+  //   bottom: 50,
+  // },
   btn: {
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -70,11 +116,11 @@ const styles = StyleSheet.create({
     top: 30,
   },
   status: {
-    left: 30,
+    left: 20,
     top: 10,
   },
   online: {
-    right: 40,
+    right: 20,
     height: 35,
     width: 90,
     textAlign: "center",

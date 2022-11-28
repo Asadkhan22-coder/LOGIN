@@ -16,6 +16,19 @@ import Arrow from "../SVG/Arrow";
 import NavigateIcon from "../SVG/NavigateIcon";
 import UpperArrow from "../SVG/UpperArrow";
 import Plus from "../SVG/Plus";
+import Amount from "../SVG/Amount";
+import Car from "../SVG/Car";
+import Calendar from "../SVG/Calendar";
+import Edit from "../SVG/Edit";
+import Clock from "../SVG/Clock";
+import AlarmClock from "../SVG/AlarmClock";
+import Camera from "../SVG/Camera";
+import CaptureImage from "../SVG/CaptureImage";
+import Food from "../SVG/Food";
+import CarRepair from "../SVG/CarRepair";
+import Toll from "../SVG/Toll";
+import Delete from "../SVG/Delete";
+import PopupDelete from "../SVG/PopUpDelete";
 
 export {
   Frame,
@@ -36,4 +49,17 @@ export {
   NavigateIcon,
   UpperArrow,
   Plus,
+  Amount,
+  Car,
+  Calendar,
+  Edit,
+  Clock,
+  AlarmClock,
+  Camera,
+  CaptureImage,
+  Food,
+  CarRepair,
+  Toll,
+  Delete,
+  PopupDelete,
 };

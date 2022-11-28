@@ -146,6 +146,7 @@ const DashboardContainer = ({ maincontainerstyle }) => {
       <FlatList
         data={Data}
         scrollEnabled={true}
+        // horizontal
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <>

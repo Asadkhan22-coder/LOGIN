@@ -1,33 +1,49 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Input from "../Input";
 import Button from "../../Buttons/button";
+import Store from "../../Store/mobXstore";
+import { observer } from "mobx-react-lite";
 
 const NotesContainer = () => {
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+
+  const getData = () => {
+    Store.setNote({ title, description });
+  };
+
   return (
     <>
       <View style={styles.main}>
         <Text style={styles.title}>Title</Text>
         <View style={styles.input}>
-          <TextInput placeholder="Enter Title" />
+          <TextInput
+            placeholder="Enter Title"
+            onChangeText={(e) => setTitle(e)}
+          />
         </View>
 
         <Text style={styles.title2}>Description</Text>
         {/* <View> */}
-        <TextInput style={styles.input2} />
+        <TextInput
+          style={styles.input2}
+          onChangeText={(e) => setDescription(e)}
+        />
         {/* </View> */}
 
         <Button
           title={"Save"}
           style={styles.btn}
           buttonStyle={{ color: "white" }}
+          onClick={() => getData()}
         />
       </View>
     </>
   );
 };
 
-export default NotesContainer;
+export default observer(NotesContainer);
 
 const styles = StyleSheet.create({
   main: {

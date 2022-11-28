@@ -32,7 +32,7 @@ const Input = (props) => {
         onChangeText={(data) => props.onChangeABC(data)}
       />
 
-      {isPassword && (
+      {isPassword ? (
         <TouchableOpacity
           style={styles.icon}
           onPress={() => setSecure(!secure)}
@@ -42,6 +42,10 @@ const Input = (props) => {
             color="black"
             name={secure ? "do-not-disturb-on" : "remove-red-eye"}
           />
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity style={props.styleRightIcon}>
+          {props?.RightIcon && props?.RightIcon}
         </TouchableOpacity>
       )}
     </View>
@@ -67,6 +71,8 @@ const styles = StyleSheet.create({
     width: "80%",
     justifyContent: "space-between",
     alignContent: "center",
+    // borderWidth: 1,
+    // height: "100%",
   },
   icon: {
     width: "20%",

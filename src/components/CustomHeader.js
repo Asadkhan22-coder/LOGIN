@@ -2,20 +2,24 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import * as SVG from "../assets/SVG";
 
-const CustomHeader = ({ title, onClick, backIcon, icon }) => {
+const CustomHeader = ({ title, onClick, backIcon, icon, next }) => {
   return (
     <View style={styles.heading}>
       <View style={styles.heading2}>
         <View style={{ width: "20%", alignItems: "center" }}>
           <TouchableOpacity onPress={() => onClick()}>
-            {/* <SVG.BackIcon style={styles.filter} /> */}
             {backIcon}
           </TouchableOpacity>
         </View>
         <View style={{ width: "60%", alignItems: "center" }}>
           <Text style={styles.name}>{title}</Text>
         </View>
-        <View style={{ width: "20%", alignItems: "center" }}>{icon}</View>
+        <TouchableOpacity
+          style={{ width: "20%", alignItems: "center" }}
+          onPress={() => next()}
+        >
+          {icon}
+        </TouchableOpacity>
       </View>
     </View>
   );

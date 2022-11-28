@@ -1,18 +1,8 @@
-import {
-  Modal,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
 import React, { useState } from "react";
-import Ionicons from "@expo/vector-icons/MaterialIcons";
+import { StyleSheet, View } from "react-native";
 import * as SVG from "../assets/SVG";
 
 const EmptyExpenseContainer = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <View style={styles.container}>
       <SVG.EmptyLogo style={styles.logo} />

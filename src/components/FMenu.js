@@ -1,19 +1,33 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
+import React, { useRef } from "react";
+import { Modalize } from "react-native-modalize";
 
-const FMenu = ({ isvisible }) => {
+const FMenu = ({ isvisible, onPress }) => {
   return (
     <>
       {isvisible && (
         <View style={styles.container}>
           <View style={styles.text}>
-            <Text style={styles.modalText}>Trip Expense</Text>
+            <TouchableOpacity onPress={() => onPress()}>
+              <Text style={styles.modalText}>Trip Expense</Text>
+            </TouchableOpacity>
           </View>
+
           <View style={styles.text}>
-            <Text style={styles.modalText}>Vehical Expense</Text>
+            <TouchableOpacity>
+              <Text style={styles.modalText}>Vehical Expense</Text>
+            </TouchableOpacity>
           </View>
           <View>
-            <Text style={styles.modalText}>General</Text>
+            <TouchableOpacity>
+              <Text style={styles.modalText}>General</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
@@ -39,5 +53,10 @@ const styles = StyleSheet.create({
   },
   text: {
     borderBottomWidth: 1,
+    // borderWidth: 1,
+  },
+  modal: {
+    width: "100%",
+    // position: "absolute",
   },
 });

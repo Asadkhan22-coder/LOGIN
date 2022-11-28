@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { observer } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
+import ProfileInfo from "../components/ProfileScreens/ProfileInfo";
+import ProfileInfoEdit from "../components/ProfileScreens/ProfileInfoEdit";
 import AddNotes from "../components/TripDetailScreens/AddNotes";
 import LiveTrip from "../components/TripDetailScreens/LiveTrip";
 import Login from "../screens/Login";
@@ -13,6 +15,16 @@ import Welcome from "../screens/Welcome";
 import Store from "../Store/mobXstore";
 import { getData } from "../utils/service";
 import BottomTabs from "./BottomTabs";
+import ChangePass from "../components/ProfileScreens/ChangePass";
+import BataAllowance from "../components/ProfileScreens/BataAllowance";
+import LicenseEditInfo from "../components/ProfileScreens/LicenseEditInfo";
+import OTPScreen from "../components/ProfileScreens/OTPScreen";
+import ProfileConfirmPass from "../components/ProfileScreens/ConfirmChangePass";
+import LicenseInformation from "../components/ProfileScreens/LicenseInformation";
+import CameraScreen from "../components/TripDetailScreens/CameraScreen";
+import ExpenseBillScreen from "../components/ExpenseScreens/ExpenseBillScreen";
+import MainBill from "../components/ExpenseScreens/MainBill";
+import EditTripExpense from "../components/ExpenseScreens/EditTripExpense";
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +65,27 @@ const Navigation = () => {
             <Stack.Screen name="StartTrip" component={StartTrip} />
             <Stack.Screen name="LiveTrip" component={LiveTrip} />
             <Stack.Screen name="AddNotes" component={AddNotes} />
+            <Stack.Screen name="ProfileInfo" component={ProfileInfo} />
+            <Stack.Screen name="ProfileInfoEdit" component={ProfileInfoEdit} />
+            <Stack.Screen name="ChangePass" component={ChangePass} />
+            <Stack.Screen name="BataAllowance" component={BataAllowance} />
+            <Stack.Screen name="LicenseEditInfo" component={LicenseEditInfo} />
+            <Stack.Screen name="OTPScreen" component={OTPScreen} />
+            <Stack.Screen name="CameraScreen" component={CameraScreen} />
+            <Stack.Screen name="MainBill" component={MainBill} />
+            <Stack.Screen name="EditTripExpense" component={EditTripExpense} />
+            <Stack.Screen
+              name="ExpenseBillScreen"
+              component={ExpenseBillScreen}
+            />
+            <Stack.Screen
+              name="LicenseInformation"
+              component={LicenseInformation}
+            />
+            <Stack.Screen
+              name="ProfileConfirmPass"
+              component={ProfileConfirmPass}
+            />
           </>
         )}
       </Stack.Navigator>

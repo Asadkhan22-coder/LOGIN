@@ -9,17 +9,22 @@ const ProfileButton = ({
   styling,
   stylingbtn,
   iconstyle,
+  onClick,
+  secondIcon,
 }) => {
   return (
     <>
-      <View style={[styles.btnContainer, styling]}>
+      <TouchableOpacity
+        style={[styles.btnContainer, styling]}
+        onPress={() => onClick()}
+      >
         <View style={styles.head}>
-          <Text style={[{ left: 5 }, iconstyle]}>{icon1}</Text>
+          <Text style={[{ left: 12 }, iconstyle]}>{icon1}</Text>
 
           <Text style={[styles.text, stylingbtn]}>{title}</Text>
         </View>
-        <Text style={{ right: 10 }}>{icon2}</Text>
-      </View>
+        <Text style={[{ right: 10 }, secondIcon]}>{icon2}</Text>
+      </TouchableOpacity>
     </>
   );
 };
